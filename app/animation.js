@@ -1,48 +1,36 @@
-Splitting();
+var cursor = document.querySelector('.cursor'),
+    cursorScale = document.querySelectorAll('.cursor-scale'),
+    mouseX = 0,
+    mouseY = 0
 
-let cursor = document.querySelector('.cursor'),
-    cursorText = cursor.querySelectorAll('.char');
+gsap.to({}, 0.016, {
+    repeat: -1,
 
-
-function rounded(radius) {
-  
-    for (let i = 0; i < cursorText.length; i++) {
-        let rotation = i * (360 / cursorText.length);
-        gsap.set(cursorText[i], {
-            transformOrigin: `0px ${radius}px`,
-            x: radius,
-            rotate: rotation
-        });
-        gsap.set(cursor, { transformOrigin: "center center", rotation: 0, width: radius * 2, height: radius * 2 })
-
+    onRepeat: function () {
+        gsap.set(cursor, {
+            css: {
+                left: mouseX,
+                top: mouseY
+            }
+        })
     }
+});
 
-    let rotate = gsap.timeline({ repeat: -1 })
-    rotate.to(cursor, { rotation: 360, duration: 5, ease: "none", })
-}
+window.addEventListener("mousemove", function (e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY
+});
 
-let radius = 70
-
-
-function cursorMove(e) {
-    var mouseX = e.clientX,
-        mouseY = e.clientY
-    tl = gsap.timeline();
-    tl.to(cursor, {
-        duration: 1,
-        x: mouseX - radius,
-        y: mouseY - radius,
-        ease: Expo.ease
-    })
-}
-
-
-
-function init() {
-    rounded(radius);
-    window.addEventListener('mousemove', cursorMove);
-}
-
-window.addEventListener("load", function () {
-    init();
-})
+cursorScale.forEach(link => {
+    link.addEventListener('mouseleave', () => {
+        cursor.classList.remove('grow');
+        cursor.classList.remove('grow-small');
+    });
+    link.addEventListener('mousemove', () => {
+        cursor.classList.add('grow');
+        if(link.classList.contains('small')){
+            cursor.classList.remove('grow');
+            cursor.classList.add('grow-small');
+        }
+    });
+});
