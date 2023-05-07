@@ -1,0 +1,117 @@
+body {
+    font-family: Asans-serif;
+}
+
+.cursor {
+    pointer-events: none;
+}
+.cursor__ball {
+      position: fixed;
+      top: 0;
+      left: 0;
+      mix-blend-mode: difference;
+      z-index: 1000;
+}
+
+.circle {
+        fill: #f7f8fa;
+}
+
+
+a {
+    text-decoration: none;
+    color: crimson;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+H1 {
+    padding: 0;
+    margin: 0;
+}
+
+H2 {
+    padding: 0;
+    margin: 0;
+}
+
+H3 {
+    padding: 0;
+    margin: 0;
+}
+
+H4 {
+    padding: 0;
+    margin: 0;
+}
+
+.date {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .8em;
+
+}
+
+.company {
+    
+}
+
+.position {
+    
+}
+
+#top-wrapper {
+    margin:auto;
+}
+
+#page-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    max-width: 50rem;
+    margin: auto;
+}
+
+#hero {
+    
+}
+
+#menu-wrapper {
+    
+}
+
+.item {
+    border: 1px solid crimson;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.intro {
+    grid-column: 1/6;
+}
+
+.info {
+    grid-column: 1/1;
+}
+
+.entry-large {
+    grid-column: 2/6;
+}
+
+.entry-medium-left {
+    grid-column: 2/4;
+}
+
+.entry-medium-right {
+    grid-column: 4/6;
+}
+
+.entry-small {
+    
+}
+
+
+
+
