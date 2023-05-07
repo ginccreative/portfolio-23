@@ -1,5 +1,5 @@
 body {
-    font-family: Asans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .cursor {
@@ -28,6 +28,7 @@ a:hover {
 }
 
 H1 {
+    font-family: 'Sansita', sans-serif;
     padding: 0;
     margin: 0;
 }
