@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Sansita:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
    
     <!-- Mouse Cursor links -->
-    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     
 </head>
@@ -21,13 +20,7 @@
 
 <!-- Mouse Cursor -->    
 
-    <div class="cursor">
-        <div class="cursor-inner">
-            <div class="cursor-text" data-splitting>
-                Rounded-Text-Cursor-Animation-
-            </div>
-        </div>
-    </div>
+<div class="cursor"></div>
     
 <!-- No one talks about this wrapper, maybe if it were mexican people would eat it -->
 <div id="top-wrapper">
@@ -37,10 +30,10 @@
     </div>
     <!-- Hello and welcome Sir! -->
     <div id="hero">
-        <h1 class="heading-hero">Portfolio</h1>
-        <h3 class="heading-sub">Branding, Design, Marketing, Websites, Photo and Video.</h2>
-        <button class="button-primary">Contact me</button>
-        <button class="button-secondary">Learn More</button>
+        <h1 class="heading-hero cursor-scale">Portfolio</h1>
+        <h3 class="heading-sub cursor-scale small">Branding, Design, Marketing, Websites, Photo and Video.</h2>
+        <button class="button-primary cursor-scale small">Contact me</button>
+        <button class="button-secondary cursor-scale small">Learn More</button>
     </div>
 </div>
 <div id="page-grid-wrapper">
@@ -200,8 +193,6 @@
         </p>
     </div>
 </div>    
-
-<script> Splitting(); </script>
     
 </body>
 
