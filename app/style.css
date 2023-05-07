@@ -4,21 +4,27 @@ body {
 }
 
 .cursor{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 1;
-    color: crimson;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+    border-radius: 50%;
+    border: 2px solid #16a085;
+    transition: transform .3s ease;
+    transform-origin: center center;
+    pointer-events: none;
+    z-index: 1000;
 }
 
-
-.cursor-text{
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
+.grow, .grow-small{
+    transform: scale(10);
+    background: #fff;
+    mix-blend-mode: difference;
+    border: none;
 }
-.cursor-text .char {
-    position: absolute !important;
+.grow-small{
+    transform: scale(2.5);
 }
 
 a {
@@ -35,6 +41,10 @@ H1 {
     font-weight: 900;
     padding: 0;
     margin: 0;
+    background-color: #f4d03f;
+    background-image: linear-gradient(132deg, #f4d03f 0%, #16a085 100%);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 H2 {
