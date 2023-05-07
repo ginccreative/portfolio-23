@@ -1,34 +1,48 @@
-const $bigBall = document.querySelector('.cursor__ball--big');
-const $smallBall = document.querySelector('.cursor__ball--small');
-const $hoverables = document.querySelectorAll('.hoverable');
+Splitting();
 
-// Listeners
-document.body.addEventListener('mousemove', onMouseMove);
-for (let i = 0; i < $hoverables.length; i++) {
-  $hoverables[i].addEventListener('mouseenter', onMouseHover);
-  $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
+let cursor = document.querySelector('.cursor'),
+    cursorText = cursor.querySelectorAll('.char');
+
+
+function rounded(radius) {
+  
+    for (let i = 0; i < cursorText.length; i++) {
+        let rotation = i * (360 / cursorText.length);
+        gsap.set(cursorText[i], {
+            transformOrigin: `0px ${radius}px`,
+            x: radius,
+            rotate: rotation
+        });
+        gsap.set(cursor, { transformOrigin: "center center", rotation: 0, width: radius * 2, height: radius * 2 })
+
+    }
+
+    let rotate = gsap.timeline({ repeat: -1 })
+    rotate.to(cursor, { rotation: 360, duration: 5, ease: "none", })
 }
 
-// Move the cursor
-function onMouseMove(e) {
-  TweenMax.to($bigBall, .4, {
-    x: e.pageX - 15,
-    y: e.pageY - 15
-  })
-  TweenMax.to($smallBall, .1, {
-    x: e.pageX - 5,
-    y: e.pageY - 7
-  })
+let radius = 70
+
+
+function cursorMove(e) {
+    var mouseX = e.clientX,
+        mouseY = e.clientY
+    tl = gsap.timeline();
+    tl.to(cursor, {
+        duration: 1,
+        x: mouseX - radius,
+        y: mouseY - radius,
+        ease: Expo.ease
+    })
 }
 
-// Hover an element
-function onMouseHover() {
-  TweenMax.to($bigBall, .3, {
-    scale: 4
-  })
+
+
+function init() {
+    rounded(radius);
+    window.addEventListener('mousemove', cursorMove);
 }
-function onMouseHoverOut() {
-  TweenMax.to($bigBall, .3, {
-    scale: 1
-  })
-}
+
+window.addEventListener("load", function () {
+    init();
+})
